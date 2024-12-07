@@ -5,6 +5,7 @@ from tkinter import messagebox
 import string
 import random
 from pyperclip import *
+import pyperclip
 import string
 import random
 
@@ -16,8 +17,7 @@ class newAccountframe(ttk.Frame):
     def __init__(self, parent):
         self.parent = parent.top
         self.root = parent
-        ttk.Frame.__init__(self, self.parent,
-                           padding="3 3 12 12", style="new.TFrame")
+        ttk.Frame.__init__(self, self.parent, padding="3 3 12 12", style="new.TFrame")
         self.grid(column=0, row=0, sticky=(N, E, S, W))
         self.newUsername = StringVar()
         self.newPassword = StringVar()
@@ -80,7 +80,7 @@ class newAccountframe(ttk.Frame):
                 if self.usernameCheck(username):
                     if self.passwordCheck(password):
                         self.root.currentUserAccounts.append(account(website, username, password))
-                        filename = self.root.currentUser + ".txt"
+                        filename = "oop-Tkinter-passman-main\\"+ self.root.currentUser + ".txt"
                         f = open(filename, "a")
                         string = "\n" + website + "," + username + "," + password
                         f.write(string)
@@ -167,7 +167,7 @@ class accountListframe(ttk.Frame):
     def __init__(self, parent):
         self.parent = parent
         self.root = self.parent.parent
-        filename = self.root.currentUser + ".txt"
+        filename = "oop-Tkinter-passman-main\\" + self.root.currentUser + ".txt"
         f = open(filename, 'r')
         contents = f.readlines()
         accounts = []
@@ -200,7 +200,7 @@ class account:
         self.password = password
 
 def readUsers():
-    f = open("UsersList.txt", 'r')
+    f = open("oop-Tkinter-passman-main\\UsersList.txt", 'r')
     users = f.readlines()
     results = {}
     for user in users:
