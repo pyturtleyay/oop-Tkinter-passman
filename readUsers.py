@@ -1,5 +1,5 @@
 def readUsers():
-    f = open("UsersList.txt", 'r')
+    f = open("oop-Tkinter-passman-main\\UsersList.txt", 'r')
     users = f.readlines()
     results = {}
     for user in users:
@@ -36,7 +36,7 @@ def register(UsersList, username, password):
     if username not in UsersList:
         if usernameCheck(username):
             if passwordCheck(password):
-                f = open("UsersList.txt", "a")
+                f = open("oop-Tkinter-passman-main\\UsersList.txt", "a")
                 string = '\n'+ username + "," +password
                 f.write(string)
                 f.close()
